@@ -39,7 +39,7 @@ namespace ConsolaNHibernate
                             .Server("localhost")
                             .Database("entrega2")
                             .Username("root")
-                            .Password("1MG32025")
+                            .Password("1MG2024")
                         )
                 )
                 .Mappings(m =>
