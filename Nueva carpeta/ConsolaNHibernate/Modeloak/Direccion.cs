@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ConsolaNHibernate.Modeloak
 {
-    internal class Direccion
+    public class Direccion
     {
+        public virtual int Idx { get; set; }
+        public virtual string Calle { get; set; }
+        public virtual string Ciudad { get; set; }
+        public virtual string CodigoPostal { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

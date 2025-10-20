@@ -114,7 +114,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapeoak\DireccionMap.cs" />
     <Compile Include="Mapeoak\UsuarioMap.cs" />
+    <Compile Include="Modeloak\Direccion.cs" />
     <Compile Include="Modeloak\Usuario.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Program.cs" />

@@ -18,14 +18,13 @@ namespace ConsolaNHibernate.Mapeoak
 
             Map(x => x.UsuarioNombre).Column("usuario").Length(20).Not.Nullable();
             Map(x => x.Nombre).Column("nombre").Length(20);
-            Map(x => x.Sexo).Column("sexo").Length(1);
-            Map(x => x.Nivel).Column("nivel");
             Map(x => x.Email).Column("email").Length(50);
-            Map(x => x.Telefono).Column("telefono").Length(20);
-            Map(x => x.Marca).Column("marca").Length(20);
-            Map(x => x.Compania).Column("compañia").Length(20);
-            Map(x => x.Saldo).Column("saldo");
-            Map(x => x.Activo).Column("activo");
+
+            
+
+            HasOne(x => x.Direccion)
+                .Cascade.All()
+                .PropertyRef(d => d.Usuario);
         }
     }
 

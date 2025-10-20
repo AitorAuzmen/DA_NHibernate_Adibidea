@@ -11,14 +11,10 @@ namespace ConsolaNHibernate.Modeloak
         public virtual int Idx { get; set; }
         public virtual string UsuarioNombre { get; set; }
         public virtual string Nombre { get; set; }
-        public virtual string Sexo { get; set; }
-        public virtual byte Nivel { get; set; }
         public virtual string Email { get; set; }
-        public virtual string Telefono { get; set; }
-        public virtual string Marca { get; set; }
-        public virtual string Compania { get; set; }
-        public virtual float Saldo { get; set; }
-        public virtual bool Activo { get; set; }
+
+        public virtual Direccion Direccion { get; set; }
+
 
     }
 }

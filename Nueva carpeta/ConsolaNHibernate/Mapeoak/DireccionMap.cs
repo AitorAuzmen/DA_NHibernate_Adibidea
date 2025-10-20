@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConsolaNHibernate.Mapeoak
 {
-    internal class DireccionMap
+    public class DireccionMap
     {
+        
     }
 }
