@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentNHibernate.Mapping;
+using ConsolaNHibernate.Modeloak;
 
 namespace ConsolaNHibernate
 {
@@ -37,7 +39,7 @@ namespace ConsolaNHibernate
                     MySQLConfiguration.Standard
                         .ConnectionString(cs => cs
                             .Server("localhost")
-                            .Database("entrega2")
+                            .Database("datu atzipena")
                             .Username("root")
                             .Password("1MG2024")
                         )
@@ -51,6 +53,24 @@ namespace ConsolaNHibernate
         public static ISession OpenSession()
         {
             return SessionFactory.OpenSession();
+        }
+    }
+
+    public class DireccionMap : ClassMap<Direccion>
+    {
+        public DireccionMap()
+        {
+            Table("direcciones"); // actual table name
+            Id(x => x.Idx).Column("idx").GeneratedBy.Identity();
+            Map(x => x.Calle).Column("calle");
+            Map(x => x.Ciudad).Column("ciudad");
+            Map(x => x.CodigoPostal).Column("codigo_postal");
+
+            // FK to Usuario table. Make it unique if it's strictly one-to-one.
+            References(x => x.Usuario)
+                .Column("usuario_idx")
+                .Unique()
+                .Not.Nullable(); 
         }
     }
 }
