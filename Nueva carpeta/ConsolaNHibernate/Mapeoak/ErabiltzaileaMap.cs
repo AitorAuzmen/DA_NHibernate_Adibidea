@@ -18,14 +18,9 @@ namespace ConsolaNHibernate.Mapeoak
 
             Map(x => x.ErabiltzaileIzena).Column("erabiltzailea").Length(20).Not.Nullable();
             Map(x => x.Izena).Column("izena").Length(20);
-            Map(x => x.Sexua).Column("sexua").Length(1);
-            Map(x => x.Maila).Column("maila");
             Map(x => x.Emaila).Column("emaila").Length(50);
-            Map(x => x.Telefonoa).Column("telefonoa").Length(20);
-            Map(x => x.Marka).Column("marka").Length(20);
-            Map(x => x.Konpania).Column("konpania").Length(20);
-            Map(x => x.Saldoa).Column("saldoa");
-            Map(x => x.Aktibo).Column("actibo");
+            
+            
 
             HasOne(x => x.Helbidea)
                 .Cascade.All()

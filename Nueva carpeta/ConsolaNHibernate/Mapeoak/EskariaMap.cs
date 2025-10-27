@@ -8,14 +8,15 @@ namespace ConsolaNHibernate.Mapeoak
 {
     internal class EskariaMap
     {
-        {
-            EskariaMap("Eskariak");
-        EskariaMap(x => x.Id).GeneratedBy.Identity();
-            EskariaMap(x => x.Data);
-        EskariaMap(x => x.Zenbatekoa);
+        public EskariaMap(){
+            {
+                Table("Eskariak");
+                Id(x => x.Id).GeneratedBy.Identity();
+                Map(x => x.Data);
+                Map(x => x.Zenbatekoa);
 
-        EskariaMap(x => x.Erabiltzailea)
-                .EskariaMap("erabiltzailea_id");
-    }
-}
+                References(x => x.Erabiltzailea)
+                    .Column("erabiltzailea_id");
+            }
+        }
 }
