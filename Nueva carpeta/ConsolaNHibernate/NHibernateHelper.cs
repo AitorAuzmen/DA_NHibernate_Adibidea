@@ -45,7 +45,7 @@ namespace ConsolaNHibernate
                         )
                 )
                 .Mappings(m =>
-                    m.FluentMappings.AddFromAssemblyOf<UsuarioMap>())
+                    m.FluentMappings.AddFromAssemblyOf<ErabiltzaileaMap>())
                 .ExposeConfiguration(cfg => new SchemaExport(cfg).Create(false, true)) 
                 .BuildSessionFactory();
         }
@@ -56,18 +56,18 @@ namespace ConsolaNHibernate
         }
     }
 
-    public class DireccionMap : ClassMap<Direccion>
+    public class DireccionMap : ClassMap<Helbidea>
     {
         public DireccionMap()
         {
             Table("direcciones"); // actual table name
-            Id(x => x.Idx).Column("idx").GeneratedBy.Identity();
-            Map(x => x.Calle).Column("calle");
-            Map(x => x.Ciudad).Column("ciudad");
-            Map(x => x.CodigoPostal).Column("codigo_postal");
+            Id(x => x.Id).Column("idx").GeneratedBy.Identity();
+            Map(x => x.Kalea).Column("Kalea");
+            Map(x => x.Hiria).Column("Hiria");
+            Map(x => x.Herrialdea).Column("Herrialdea");
 
             // FK to Usuario table. Make it unique if it's strictly one-to-one.
-            References(x => x.Usuario)
+            References(x => x.Erabiltzailea)
                 .Column("usuario_idx")
                 .Unique()
                 .Not.Nullable(); 

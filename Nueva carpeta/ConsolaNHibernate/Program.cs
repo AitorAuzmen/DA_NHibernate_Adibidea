@@ -31,11 +31,11 @@ namespace ConsolaNHibernate
 
 
             // Objektua sortu
-            var nuevoUsuario = new Usuario
+            var nuevoUsuario = new Erabiltzailea
             {
-                UsuarioNombre = usuario,
-                Nombre = nombre,
-                Email = email,
+                ErabiltzaileIzena = usuario,
+                Izena = nombre,
+                Emaila = email,
                
             };
 
@@ -51,12 +51,12 @@ namespace ConsolaNHibernate
             // 2️⃣ Guztiak inprimatu
             using (var session = NHibernateHelper.OpenSession())
             {
-                var usuarios = session.Query<Usuario>().ToList();
+                var usuarios = session.Query<Erabiltzailea>().ToList();
 
                 Console.WriteLine("\n=== Datu-baseko erabiltzaile guztiak ===");
                 foreach (var u in usuarios)
                 {
-                    Console.WriteLine($"{u.Idx}: {u.Nombre} ({u.UsuarioNombre}) - Email: {u.Email}");
+                    Console.WriteLine($"{u.Id}: {u.Izena} ({u.ErabiltzaileIzena}) - Email: {u.Emaila}");
                 }
             }
 
